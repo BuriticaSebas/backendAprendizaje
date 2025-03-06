@@ -1,15 +1,16 @@
 import "dotenv/config.js";
 import "./config/database.js";
 
-// Importamos todos los modelos
-import Computer from "./models/Computer.js";
+
+//Datos
 import Phone from "./models/Phone.js";
 import Car from "./models/Car.js";
 import Movie from "./models/Movie.js";
 import Bicycle from "./models/Bycicle.js";
 import Motorcycle from "./models/Motorcycle.js";
+import Computer from "./models/Computer.js";
 
-// Importamos los datos
+// Datos
 import computers from "./models/data/computersData.js";
 import phones from "./models/data/phonesData.js";
 import cars from "./models/data/carsData.js";
@@ -38,13 +39,14 @@ const insertData = async () => {
     await Motorcycle.insertMany(motorcycles);
     console.log("Motorcycles added successfully!");
 
-    console.log("✅ All data inserted successfully!");
+    console.log("All data inserted successfully!");
     process.exit();
   } catch (error) {
-    console.error("❌ Error inserting data:", error);
+    console.error("Error inserting data:", error);
     process.exit(1);
   }
 };
 
 // Ejecutamos la función
 insertData();
+

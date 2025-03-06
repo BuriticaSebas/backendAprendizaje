@@ -10,7 +10,7 @@ let schema = Schema(
         RAM: {type:String , required: true},
         storage: {type: Array, required: true},
         proccesor: {type: Object, required: true},
-        SO: {type:Object }
+        SO: {type:Object, required: true}
 
     },{
         timestamps:true 
