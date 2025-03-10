@@ -22,6 +22,26 @@ let allUsers = async (req, res, next) => {
 }
 
 
-export default allUsers
+let usersByName = async (req, res, next) => {
+
+    try {
+        let nameQuery = 'Juan Pérez'
+        //Aca se filtra para encontrar un solo name
+        let all = await User.find({name: nameQuery})
+
+        return res.status(200).json(
+
+            {response: all}
+        )     
+    } catch (error) {
+         return res.status(500).json(
+            {response: error }
+         )
+    }
+}
+
+
+
+export {allUsers, usersByName}
 
 

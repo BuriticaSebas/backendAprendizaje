@@ -1,11 +1,12 @@
 import { Router } from "express";
-import controlUser from '../controllers/users/read.js'
+import {allUsers, usersByName} from '../controllers/users/read.js'
 
 
 
 const routerUsers = Router()
 
 
-routerUsers.get("/allUsers", controlUser )
+routerUsers.get("/allUsers", allUsers )
+routerUsers.get('/name', usersByName)
 
 export default routerUsers
