@@ -5,6 +5,12 @@ import cors from 'cors'
 import morgan from 'morgan'
 import routerMain from "./router/index.js"
 import routerUsers from "./router/usersRoute.js"
+import routerPhone from './router/phoneRoutes.js'
+import routerMovie from './router/movieRoutes.js'
+import routerMotorcycle from './router/motorcycleRoutes.js'
+import routerComputer from './router/computerRoutes.js'
+import routerbycicle from './router/bycicleRoutes.js'
+
 
 const server = express()
 
@@ -34,10 +40,16 @@ server.use(morgan('dev'))
 
 
 
-//conectamos al enrutadot
+//conectamos al enrutador
 
 server.use('/api',routerMain)
 server.use('/api/users',routerUsers)
+server.use('/api/phones', routerPhone)
+server.use('/api/movies', routerMovie)
+server.use('/api/motorcycles', routerMotorcycle)
+server.use('/api/computers', routerComputer)
+server.use('/api/bycicles', routerbycicle)
+
 
 
 //escuchar
