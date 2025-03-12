@@ -25,9 +25,31 @@ let allUsers = async (req, res, next) => {
 let usersByName = async (req, res, next) => {
 
     try {
-        let nameQuery = 'Juan Pérez'
+        let nameQuery = req.params.nameParams
+        console.log(nameQuery)
         //Aca se filtra para encontrar un solo name
-        let all = await User.find({name: nameQuery})
+        let all = await User.find({name:nameQuery})
+
+        return res.status(200).json(
+
+            {response: all}
+        )     
+    } catch (error) {
+         return res.status(500).json(
+            {response: error }
+         )
+    }
+}
+
+
+let usersById = async (req, res, next) => {
+
+    try {
+        let idQuery = req.params.idQuery
+        console.log(idQuery)
+        
+        //Aca se filtra para encontrar un solo name
+        let all = await User.findById(idQuery)
 
         return res.status(200).json(
 
@@ -42,6 +64,6 @@ let usersByName = async (req, res, next) => {
 
 
 
-export {allUsers, usersByName}
+export {allUsers, usersByName,usersById}
 
 
